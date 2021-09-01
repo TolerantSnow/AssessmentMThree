@@ -16,14 +16,14 @@ public class DogGenetics {
         System.out.printf("%s is: \n\n", name);
 
         //generate 4 random points between 0 and 1, and sort them. this will be the cutoffs between the 5 breeds
-        double[] troughs = {rand.nextDouble(), rand.nextDouble(), rand.nextDouble(), rand.nextDouble()};
+        int[] troughs = {rand.nextInt(100), rand.nextInt(100), rand.nextInt(100), rand.nextInt(100)};
         Arrays.sort(troughs);
 
         String[] dog_breeds = {"St. Bernard", "Chihuahua", "Pug", "Poodle", "King Doberman"};
 
         //print the breeds alongside their percentages (anything not adding up to 100 is due to rounding)
         for(int index = 0; index < dog_breeds.length; index++) {
-            System.out.printf("%.0f%% %s\n", ((index < 4 ? troughs[index] : 1) - (index > 0 ? troughs[index - 1] : 0)) * 100.0, dog_breeds[index]);
+            System.out.printf("%d%% %s\n", ((index < 4 ? troughs[index] : 100) - (index > 0 ? troughs[index - 1]: 0)), dog_breeds[index]);
         }
 
         System.out.print("\nWow, that's QUITE the dog!");
